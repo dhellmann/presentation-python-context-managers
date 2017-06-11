@@ -2,7 +2,7 @@
 
 set -x
 
-FILES="*.html css js lib plugin *.svg img fonts"
+FILES="*.html css js lib plugin img fonts"
 
 ssh doughellmann.com 'mkdir -p ~/doughellmann.com/presentations/python-context-managers'
 
