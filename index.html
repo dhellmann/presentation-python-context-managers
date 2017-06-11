@@ -75,7 +75,7 @@ finally:
 <!--[[[cog
 runscript('code/try_file.py')
 ]]]-->
-<pre data-trim data-noescape>
+<pre class="lineselect_selectable" data-trim data-noescape>
 10.9.0.10	apu.hellfly.net apu
 
 </pre>
@@ -108,7 +108,7 @@ with open('/etc/hosts', 'r', encoding='utf-8') as f:
 <!--[[[cog
 runscript('code/with_file.py')
 ]]]-->
-<pre data-trim data-noescape>
+<pre class="lineselect_selectable" data-trim data-noescape>
 &lt;_io.TextIOWrapper name='/etc/hosts' mode='r' encoding='utf-8'> 
 
 10.9.0.10	apu.hellfly.net apu
@@ -151,7 +151,7 @@ with contextlib.closing(MyClosable().open()) as f:
 <!--[[[cog
 runscript('code/closing.py')
 ]]]-->
-<pre data-trim data-noescape>
+<pre class="lineselect_selectable" data-trim data-noescape>
 init
 open
 working with &lt;__main__.MyClosable object at 0x1005b1c50>
@@ -194,7 +194,7 @@ with MyContext() as c:
 <!--[[[cog
 runscript('code/custom.py')
 ]]]-->
-<pre data-trim data-noescape>
+<pre class="lineselect_selectable" data-trim data-noescape>
 __init__()
 __enter__() (acquire the resource)
 Doing work in the context 5
