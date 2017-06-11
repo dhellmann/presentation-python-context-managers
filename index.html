@@ -56,15 +56,13 @@ showcode('code/try_file.py')
 ]]]-->
 <pre><code class="lineselect_selectable py" data-trim data-noescape>#!/usr/bin/env python3
 
-"""Read file using try:finally
-"""
-
 f = open('/etc/hosts', 'r' ,encoding='utf-8')
 try:
     for line in f:
         if 'apu' in line:
             print(line)
-finally:  # always called
+finally:
+    # always called
     f.close()</code></pre>
 
 <!--[[[end]]]-->
@@ -93,9 +91,6 @@ runscript('code/try_file.py')
 showcode('code/with_file.py')
 ]]]-->
 <pre><code class="lineselect_selectable py" data-trim data-noescape>#!/usr/bin/env python3
-
-"""Read file using with
-"""
 
 with open('/etc/hosts', 'r', encoding='utf-8') as f:
     print(f, '\n')
