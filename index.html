@@ -120,6 +120,50 @@ runscript('code/with_file.py')
         </section>
 
         <section>
+          <h2><tt>closing()</tt></h2>
+
+<!--[[[cog
+showcode('code/closing.py')
+]]]-->
+<pre><code class="lineselect_selectable py" data-trim data-noescape>import contextlib
+
+class MyClosable(object):
+    def __init__(self):
+        print('init')
+
+    def open(self):
+        print('open')
+        return self
+
+    def close(self):
+        print('close')
+
+with contextlib.closing(MyClosable().open()) as f:
+    print('working with', f)</code></pre>
+
+<!--[[[end]]]-->
+
+        </section>
+
+        <section>
+          <h2><tt>closing()</tt></h2>
+
+<!--[[[cog
+runscript('code/closing.py')
+]]]-->
+<pre data-trim data-noescape>
+init
+open
+working with &lt;__main__.MyClosable object at 0x1005b1c50>
+close
+
+</pre>
+
+<!--[[[end]]]-->
+
+        </section>
+
+        <section>
           <h2>Resources</h2>
           <p><a href="https://github.com/dhellmann/presentation-python-context-managers">
               <i class="fa fa-github"></i>&nbsp;dhellmann/presentation-python-context-managers
