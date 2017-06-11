@@ -207,6 +207,53 @@ __exit__() (release the resource)
         </section>
 
         <section>
+          <h2>Error Handling</h2>
+
+<!--[[[cog
+showcode('code/errors.py')
+]]]-->
+<pre><code class="lineselect_selectable py" data-trim data-noescape>class MyContext(object):
+
+    def __enter__(self):
+        return 5
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if issubclass(exc_type, RuntimeError):
+            print('Handling exception:', exc_val)
+            return True
+        print('Unhandled Exception:', exc_val)
+
+with MyContext() as c:
+    raise RuntimeError('this is OK')
+
+with MyContext() as c:
+    raise ValueError('this causes failure')</code></pre>
+
+<!--[[[end]]]-->
+
+        </section>
+
+        <section>
+          <h2>Error Handling</h2>
+
+<!--[[[cog
+runscript('code/errors.py')
+]]]-->
+<pre class="lineselect_selectable" data-trim data-noescape>
+Handling exception: this is OK
+Unhandled Exception: this causes failure
+Traceback (most recent call last):
+  File "code/errors.py", line 16, in &lt;module>
+    raise ValueError('this causes failure')
+ValueError: this causes failure
+
+</pre>
+
+<!--[[[end]]]-->
+
+        </section>
+
+        <section>
           <h2>Resources</h2>
           <p><a href="https://github.com/dhellmann/presentation-python-context-managers">
               <i class="fa fa-github"></i>&nbsp;dhellmann/presentation-python-context-managers
