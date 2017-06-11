@@ -254,6 +254,92 @@ ValueError: this causes failure
         </section>
 
         <section>
+          <h2>Generator</h2>
+
+<!--[[[cog
+showcode('code/generator.py')
+]]]-->
+<pre><code class="lineselect_selectable py" data-trim data-noescape>import contextlib
+
+@contextlib.contextmanager
+def my_context():
+    print('entering my_context')
+    try:
+        yield 'something'
+    except RuntimeError:
+        print('handled error in context manager')
+    print('exiting my_context')
+
+with my_context() as msg:
+    print('doing work in the context "%s"' % msg)
+    raise RuntimeError('hi again')</code></pre>
+
+<!--[[[end]]]-->
+
+        </section>
+
+        <section>
+          <h2>Generator</h2>
+
+<!--[[[cog
+runscript('code/generator.py')
+]]]-->
+<pre class="lineselect_selectable" data-trim data-noescape>
+entering my_context
+doing work in the context "something"
+handled error in context manager
+exiting my_context
+
+</pre>
+
+<!--[[[end]]]-->
+
+        </section>
+
+        <section>
+          <h2>Generator Error Handling</h2>
+
+<!--[[[cog
+showcode('code/generator2.py')
+]]]-->
+<pre><code class="lineselect_selectable py" data-trim data-noescape>import contextlib
+
+@contextlib.contextmanager
+def my_context():
+    print('entering my_context')
+    try:
+        yield 'something'
+    except RuntimeError:
+        print('handled error in context manager')
+    print('exiting my_context')
+
+with my_context() as msg:
+    raise ValueError('fails again')</code></pre>
+
+<!--[[[end]]]-->
+
+        </section>
+
+        <section>
+          <h2>Generator Error Handling</h2>
+
+<!--[[[cog
+runscript('code/generator2.py')
+]]]-->
+<pre class="lineselect_selectable" data-trim data-noescape>
+entering my_context
+Traceback (most recent call last):
+  File "code/generator2.py", line 13, in &lt;module>
+    raise ValueError('fails again')
+ValueError: fails again
+
+</pre>
+
+<!--[[[end]]]-->
+
+        </section>
+
+        <section>
           <h2>Resources</h2>
           <p><a href="https://github.com/dhellmann/presentation-python-context-managers">
               <i class="fa fa-github"></i>&nbsp;dhellmann/presentation-python-context-managers

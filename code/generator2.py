@@ -10,5 +10,4 @@ def my_context():
     print('exiting my_context')
 
 with my_context() as msg:
-    print('doing work in the context "%s"' % msg)
-    raise RuntimeError('hi again')
+    raise ValueError('fails again')
