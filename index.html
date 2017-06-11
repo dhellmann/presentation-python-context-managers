@@ -1,5 +1,4 @@
 <!--[[[cog
-from tools.regexesfear import showregex
 from tools.showcode import showcode, runscript
 import re
 ]]]-->
@@ -50,16 +49,87 @@ import re
         </section>
 
         <section>
-          <h2>Create your other slides here</h2>
+          <h2><tt>try:finally</tt></h2>
+
+<!--[[[cog
+showcode('code/try_file.py')
+]]]-->
+<pre><code class="lineselect_selectable py" data-trim data-noescape>#!/usr/bin/env python3
+
+"""Read file using try:finally
+"""
+
+f = open('/etc/hosts', 'r' ,encoding='utf-8')
+try:
+    for line in f:
+        if 'apu' in line:
+            print(line)
+finally:  # always called
+    f.close()</code></pre>
+
+<!--[[[end]]]-->
+
+        </section>
+
+        <section>
+          <h2><tt>try:finally</tt></h2>
+
+<!--[[[cog
+runscript('code/try_file.py')
+]]]-->
+<pre data-trim data-noescape>
+10.9.0.10	apu.hellfly.net apu
+
+</pre>
+
+<!--[[[end]]]-->
+
+        </section>
+
+        <section>
+          <h2><tt>with</tt></h2>
+
+<!--[[[cog
+showcode('code/with_file.py')
+]]]-->
+<pre><code class="lineselect_selectable py" data-trim data-noescape>#!/usr/bin/env python3
+
+"""Read file using with
+"""
+
+with open('/etc/hosts', 'r', encoding='utf-8') as f:
+    print(f, '\n')
+    for line in f:
+        if 'apu' in line:
+            print(line)</code></pre>
+
+<!--[[[end]]]-->
+
+        </section>
+
+        <section>
+          <h2><tt>with</tt></h2>
+
+<!--[[[cog
+runscript('code/with_file.py')
+]]]-->
+<pre data-trim data-noescape>
+&lt;_io.TextIOWrapper name='/etc/hosts' mode='r' encoding='utf-8'> 
+
+10.9.0.10	apu.hellfly.net apu
+
+</pre>
+
+<!--[[[end]]]-->
+
         </section>
 
         <section>
           <h2>Resources</h2>
-          <p><small>
-            <a href="https://github.com/dhellmann/presentation-python-context-managers">
+          <p><a href="https://github.com/dhellmann/presentation-python-context-managers">
               <i class="fa fa-github"></i>dhellmann/presentation-python-context-managers
             </a>
-          </small></p>
+          </p>
           <p>
             <a href="https://twitter.com/doughellmann">
               <i class="fa fa-twitter"></i>@doughellmann

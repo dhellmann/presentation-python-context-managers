@@ -1,0 +1,12 @@
+
+context managers help you manage resources safely
+
+try_file.py example
+
+with_file.py
+
+other closables (closing.py)
+
+custom context API (custom.py)
+
+using a generator (generator.py)
