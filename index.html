@@ -164,6 +164,49 @@ close
         </section>
 
         <section>
+          <h2>Class API</h2>
+
+<!--[[[cog
+showcode('code/custom.py')
+]]]-->
+<pre><code class="lineselect_selectable py" data-trim data-noescape>class MyContext(object):
+    def __init__(self):
+        print('__init__()')
+
+    def __enter__(self):
+        print('__enter__() (acquire the resource)')
+        return 5
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print('__exit__() (release the resource)')
+        return True
+
+with MyContext() as c:
+    print('Doing work in the context', c)</code></pre>
+
+<!--[[[end]]]-->
+
+        </section>
+
+        <section>
+          <h2>Class API</h2>
+
+<!--[[[cog
+runscript('code/custom.py')
+]]]-->
+<pre data-trim data-noescape>
+__init__()
+__enter__() (acquire the resource)
+Doing work in the context 5
+__exit__() (release the resource)
+
+</pre>
+
+<!--[[[end]]]-->
+
+        </section>
+
+        <section>
           <h2>Resources</h2>
           <p><a href="https://github.com/dhellmann/presentation-python-context-managers">
               <i class="fa fa-github"></i>&nbsp;dhellmann/presentation-python-context-managers
