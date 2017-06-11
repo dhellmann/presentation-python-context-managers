@@ -307,6 +307,9 @@ body {
 .reveal pre {
   width: 98%; }
 
+.reveal tt {
+  font-family: Monaco, monospace; }
+
 .reveal small {
   font-size: 0.5em; }
 
@@ -336,3 +339,9 @@ body {
 
 .reveal aside.controls-off {
   visibility: hidden; }
+
+.reveal .creativecommons {
+  font-size: 0.4em; }
+
+.reveal .creativecommons img {
+  vertical-align: middle; }
