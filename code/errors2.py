@@ -10,4 +10,4 @@ class MyContext(object):
         print('Unhandled Exception:', exc_val)
 
 with MyContext() as c:
-    raise RuntimeError('this is OK')
+    raise ValueError('this causes failure')

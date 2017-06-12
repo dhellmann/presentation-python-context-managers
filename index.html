@@ -54,9 +54,7 @@ import re
 <!--[[[cog
 showcode('code/try_file.py')
 ]]]-->
-<pre><code class="lineselect_selectable py" data-trim data-noescape>#!/usr/bin/env python3
-
-f = open('/etc/hosts', 'r' ,encoding='utf-8')
+<pre><code class="lineselect_selectable py" data-trim data-noescape>f = open('/etc/hosts', 'r', encoding='utf-8')
 try:
     for line in f:
         if 'apu' in line:
@@ -67,15 +65,10 @@ finally:
 
 <!--[[[end]]]-->
 
-        </section>
-
-        <section>
-          <h2><tt>try:finally</tt></h2>
-
 <!--[[[cog
-runscript('code/try_file.py')
+runscript('code/try_file.py', fade_in=True, selectable=True)
 ]]]-->
-<pre class="lineselect_selectable" data-trim data-noescape>
+<pre data-trim data-noescape class="fragment fade-in lineselect_selectable">
 10.9.0.10	apu.hellfly.net apu
 
 </pre>
@@ -100,15 +93,10 @@ with open('/etc/hosts', 'r', encoding='utf-8') as f:
 
 <!--[[[end]]]-->
 
-        </section>
-
-        <section>
-          <h2><tt>with</tt></h2>
-
 <!--[[[cog
-runscript('code/with_file.py')
+runscript('code/with_file.py', selectable=True, fade_in=True)
 ]]]-->
-<pre class="lineselect_selectable" data-trim data-noescape>
+<pre data-trim data-noescape class="fragment fade-in lineselect_selectable">
 &lt;_io.TextIOWrapper name='/etc/hosts' mode='r' encoding='utf-8'> 
 
 10.9.0.10	apu.hellfly.net apu
@@ -143,15 +131,10 @@ with contextlib.closing(MyClosable().open()) as f:
 
 <!--[[[end]]]-->
 
-        </section>
-
-        <section>
-          <h2><tt>closing()</tt></h2>
-
 <!--[[[cog
-runscript('code/closing.py')
+runscript('code/closing.py', selectable=True, fade_in=True)
 ]]]-->
-<pre class="lineselect_selectable" data-trim data-noescape>
+<pre data-trim data-noescape class="fragment fade-in lineselect_selectable">
 init
 open
 working with &lt;__main__.MyClosable object at 0x1005b1c50>
@@ -186,15 +169,10 @@ with MyContext() as c:
 
 <!--[[[end]]]-->
 
-        </section>
-
-        <section>
-          <h2>Class API</h2>
-
 <!--[[[cog
-runscript('code/custom.py')
+runscript('code/custom.py', selectable=True, fade_in=True)
 ]]]-->
-<pre class="lineselect_selectable" data-trim data-noescape>
+<pre data-trim data-noescape class="fragment fade-in lineselect_selectable">
 __init__()
 __enter__() (acquire the resource)
 Doing work in the context 5
@@ -224,10 +202,17 @@ showcode('code/errors.py')
         print('Unhandled Exception:', exc_val)
 
 with MyContext() as c:
-    raise RuntimeError('this is OK')
+    raise RuntimeError('this is OK')</code></pre>
 
-with MyContext() as c:
-    raise ValueError('this causes failure')</code></pre>
+<!--[[[end]]]-->
+
+<!--[[[cog
+runscript('code/errors.py', selectable=True, fade_in=True)
+]]]-->
+<pre data-trim data-noescape class="fragment fade-in lineselect_selectable">
+Handling exception: this is OK
+
+</pre>
 
 <!--[[[end]]]-->
 
@@ -237,13 +222,31 @@ with MyContext() as c:
           <h2>Error Handling</h2>
 
 <!--[[[cog
-runscript('code/errors.py')
+showcode('code/errors2.py')
 ]]]-->
-<pre class="lineselect_selectable" data-trim data-noescape>
-Handling exception: this is OK
+<pre><code class="lineselect_selectable py" data-trim data-noescape>class MyContext(object):
+
+    def __enter__(self):
+        return 5
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if issubclass(exc_type, RuntimeError):
+            print('Handling exception:', exc_val)
+            return True
+        print('Unhandled Exception:', exc_val)
+
+with MyContext() as c:
+    raise ValueError('this causes failure')</code></pre>
+
+<!--[[[end]]]-->
+
+<!--[[[cog
+runscript('code/errors2.py', selectable=True, fade_in=True)
+]]]-->
+<pre data-trim data-noescape class="fragment fade-in lineselect_selectable">
 Unhandled Exception: this causes failure
 Traceback (most recent call last):
-  File "code/errors.py", line 16, in &lt;module>
+  File "code/errors2.py", line 13, in &lt;module>
     raise ValueError('this causes failure')
 ValueError: this causes failure
 
@@ -276,15 +279,10 @@ with my_context() as msg:
 
 <!--[[[end]]]-->
 
-        </section>
-
-        <section>
-          <h2>Generator</h2>
-
 <!--[[[cog
-runscript('code/generator.py')
+runscript('code/generator.py', selectable=True, fade_in=True)
 ]]]-->
-<pre class="lineselect_selectable" data-trim data-noescape>
+<pre data-trim data-noescape class="fragment fade-in lineselect_selectable">
 entering my_context
 doing work in the context "something"
 handled error in context manager
@@ -318,15 +316,10 @@ with my_context() as msg:
 
 <!--[[[end]]]-->
 
-        </section>
-
-        <section>
-          <h2>Generator Error Handling</h2>
-
 <!--[[[cog
-runscript('code/generator2.py')
+runscript('code/generator2.py', selectable=True, fade_in=True)
 ]]]-->
-<pre class="lineselect_selectable" data-trim data-noescape>
+<pre data-trim data-noescape class="fragment fade-in lineselect_selectable">
 entering my_context
 Traceback (most recent call last):
   File "code/generator2.py", line 13, in &lt;module>
