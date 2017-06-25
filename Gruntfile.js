@@ -45,6 +45,17 @@ module.exports = function(grunt) {
                         ext: '.css'
                     }
                 ]
+            },
+            other: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'css',
+                        src: ['*.scss'],
+                        dest: 'css',
+                        ext: '.css'
+                    }
+                ]
             }
         },
 
@@ -127,6 +138,10 @@ module.exports = function(grunt) {
             css: {
                 files: [ 'css/reveal.scss' ],
                 tasks: 'css-core'
+            },
+            css_other: {
+                files: [ 'css/selectable.scss' ],
+                tasks: 'css_other'
             },
             html: {
                 files: root.map(path => path + '/*.html')

@@ -22,7 +22,7 @@
 // Override theme settings (see ../template/settings.scss)
 $mainFont: 'Lato', sans-serif;
 $mainColor: #000;
-$headingFont: 'News Cycle', Impact, sans-serif;
+$headingFont: 'Montserrat', Impact, sans-serif;
 $headingColor: #000;
 $headingTextShadow: none;
 $headingTextTransform: none;
@@ -67,45 +67,6 @@ section.has-dark-background {
 
     small {
         font-size: 0.5em;
-    }
-
-    .slides section {
-
-        .fragment.highlight-yellow, .fragment.highlight-current-yellow {
-            opacity: 1;
-            visibility: inherit;
-        }
-
-        .fragment.highlight-yellow.visible {
-            background-color: yellow;
-            border: 3px solid black;
-        }
-
-        .fragment.highlight-current-yellow.current-fragment {
-            background-color: yellow;
-            border: 3px solid black;
-        }
-
-        /* lineselect.js */
-        pre span.selected {
-            border: .15em solid #f66;
-            padding: .15em .15em .05em .15em;
-            margin: -.30em -.30em -.20em -.30em;
-            font-weight: bold;
-        }
-
-        /* lineselect.js */
-        code span.selected {
-            border: .15em solid yellow;
-            background-color: yellow;
-            padding: .15em .15em .05em .15em;
-            margin: -.30em -.30em -.20em -.30em;
-            font-weight: bold;
-        }
-    }
-
-    aside.controls-off {
-        visibility: hidden;
     }
 
 	.creativecommons {
