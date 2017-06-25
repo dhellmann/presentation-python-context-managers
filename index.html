@@ -17,7 +17,7 @@ import re
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/dhellmann.css" id="theme">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
     <link rel="stylesheet" href="css/selectable.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
 
@@ -67,9 +67,9 @@ finally:
 <!--[[[end]]]-->
 
 <!--[[[cog
-runscript('code/try_file.py', fade_in=True, selectable=True)
+runscript('code/try_file.py')
 ]]]-->
-<pre data-trim data-noescape class="fragment fade-in lineselect_selectable">
+<pre data-trim data-noescape>
 10.9.0.10	apu.hellfly.net apu
 
 </pre>
@@ -95,9 +95,9 @@ with open('/etc/hosts', 'r', encoding='utf-8') as f:
 <!--[[[end]]]-->
 
 <!--[[[cog
-runscript('code/with_file.py', selectable=True, fade_in=True)
+runscript('code/with_file.py')
 ]]]-->
-<pre data-trim data-noescape class="fragment fade-in lineselect_selectable">
+<pre data-trim data-noescape>
 &lt;_io.TextIOWrapper name='/etc/hosts' mode='r' encoding='utf-8'> 
 
 10.9.0.10	apu.hellfly.net apu
@@ -133,12 +133,12 @@ with contextlib.closing(MyClosable().open()) as f:
 <!--[[[end]]]-->
 
 <!--[[[cog
-runscript('code/closing.py', selectable=True, fade_in=True)
+runscript('code/closing.py')
 ]]]-->
-<pre data-trim data-noescape class="fragment fade-in lineselect_selectable">
+<pre data-trim data-noescape>
 init
 open
-working with &lt;__main__.MyClosable object at 0x1005b1c50>
+working with &lt;__main__.MyClosable object at 0x1007b1c50>
 close
 
 </pre>
@@ -171,9 +171,9 @@ with MyContext() as c:
 <!--[[[end]]]-->
 
 <!--[[[cog
-runscript('code/custom.py', selectable=True, fade_in=True)
+runscript('code/custom.py')
 ]]]-->
-<pre data-trim data-noescape class="fragment fade-in lineselect_selectable">
+<pre data-trim data-noescape>
 __init__()
 __enter__() (acquire the resource)
 Doing work in the context 5
@@ -208,9 +208,9 @@ with MyContext() as c:
 <!--[[[end]]]-->
 
 <!--[[[cog
-runscript('code/errors.py', selectable=True, fade_in=True)
+runscript('code/errors.py')
 ]]]-->
-<pre data-trim data-noescape class="fragment fade-in lineselect_selectable">
+<pre data-trim data-noescape>
 Handling exception: this is OK
 
 </pre>
@@ -242,9 +242,9 @@ with MyContext() as c:
 <!--[[[end]]]-->
 
 <!--[[[cog
-runscript('code/errors2.py', selectable=True, fade_in=True)
+runscript('code/errors2.py')
 ]]]-->
-<pre data-trim data-noescape class="fragment fade-in lineselect_selectable">
+<pre data-trim data-noescape>
 Unhandled Exception: this causes failure
 Traceback (most recent call last):
   File "code/errors2.py", line 13, in &lt;module>
@@ -281,9 +281,9 @@ with my_context() as msg:
 <!--[[[end]]]-->
 
 <!--[[[cog
-runscript('code/generator.py', selectable=True, fade_in=True)
+runscript('code/generator.py')
 ]]]-->
-<pre data-trim data-noescape class="fragment fade-in lineselect_selectable">
+<pre data-trim data-noescape>
 entering my_context
 doing work in the context "something"
 handled error in context manager
@@ -318,9 +318,9 @@ with my_context() as msg:
 <!--[[[end]]]-->
 
 <!--[[[cog
-runscript('code/generator2.py', selectable=True, fade_in=True)
+runscript('code/generator2.py')
 ]]]-->
-<pre data-trim data-noescape class="fragment fade-in lineselect_selectable">
+<pre data-trim data-noescape>
 entering my_context
 Traceback (most recent call last):
   File "code/generator2.py", line 13, in &lt;module>
